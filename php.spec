@@ -142,7 +142,6 @@ services components for the php package.
 %prep
 %setup -q -n php-7.3.2
 cd ..
-%setup -q -T -D -n php-7.3.2 -b 1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
