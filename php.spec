@@ -7,10 +7,9 @@
 Name     : php
 Version  : 7.3.2
 Release  : 158
-URL      : http://us1.php.net/distributions/php-7.3.2.tar.xz
-Source0  : http://us1.php.net/distributions/php-7.3.2.tar.xz
-Source1  : http://localhost/cgit/projects/phpbench/snapshot/phpbench-0.8.2.tar.gz
-Source99 : http://us1.php.net/distributions/php-7.3.2.tar.xz.asc
+URL      : https://php.net/distributions/php-7.3.2.tar.xz
+Source0  : https://php.net/distributions/php-7.3.2.tar.xz
+Source99 : https://php.net/distributions/php-7.3.2.tar.xz.asc
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause HPND LGPL-2.1 MIT OLDAP-2.8 PHP-3.01 Zend-2.0 Zlib
@@ -72,12 +71,7 @@ Patch3: 0002-disable-php-openssl-ext-rc4-algo.patch
 Patch4: 0003-reduce-fpm-event-wakeups.patch
 
 %description
--=- Documentation for PHPBench 0.8.1 -=-
-http://phpbench.pureftpd.org
-PHPBench is a benchmark suite for PHP.
-
-It performs a large number of simple tests in order to bench various
-aspects of the PHP interpreter.
+PHP
 
 %package bin
 Summary: bin components for the php package.
@@ -149,8 +143,6 @@ services components for the php package.
 %setup -q -n php-7.3.2
 cd ..
 %setup -q -T -D -n php-7.3.2 -b 1
-mkdir -p phpbench
-cp -r %{_topdir}/BUILD/phpbench-0.8.2/* %{_topdir}/BUILD/php-7.3.2/phpbench
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
@@ -284,7 +276,6 @@ cp ext/mbstring/libmbfl/LICENSE %{buildroot}/usr/share/package-licenses/php/ext_
 cp ext/mbstring/oniguruma/COPYING %{buildroot}/usr/share/package-licenses/php/ext_mbstring_oniguruma_COPYING
 cp ext/mbstring/ucgendat/OPENLDAP_LICENSE %{buildroot}/usr/share/package-licenses/php/ext_mbstring_ucgendat_OPENLDAP_LICENSE
 cp ext/zip/LICENSE_libzip %{buildroot}/usr/share/package-licenses/php/ext_zip_LICENSE_libzip
-cp phpbench/LICENSE %{buildroot}/usr/share/package-licenses/php/phpbench_LICENSE
 cp sapi/fpm/LICENSE %{buildroot}/usr/share/package-licenses/php/sapi_fpm_LICENSE
 %make_install
 ## install_append content
@@ -840,7 +831,6 @@ ln -sf /usr/lib/systemd/system/php-fpm.service %{buildroot}/usr/share/clr-servic
 /usr/share/package-licenses/php/ext_mbstring_oniguruma_COPYING
 /usr/share/package-licenses/php/ext_mbstring_ucgendat_OPENLDAP_LICENSE
 /usr/share/package-licenses/php/ext_zip_LICENSE_libzip
-/usr/share/package-licenses/php/phpbench_LICENSE
 /usr/share/package-licenses/php/sapi_fpm_LICENSE
 
 %files man
